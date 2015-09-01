@@ -1,0 +1,33 @@
+{
+  "name": "arp_dash",
+  "version": "0.0.1",
+  "description": "A hack for executing javascript when Amazon dash button is pressed utilizing tcpdump/windump",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "arp_dash": "bin/arp_dash"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chr8993/arp_dash.git"
+  },
+  "keywords": [
+    "Amazon",
+    "dash",
+    "button",
+    "hack",
+    "arp",
+    "probe",
+    "javascript",
+    "windump",
+    "tcpdump"
+  ],
+  "author": "Christian Gomez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chr8993/arp_dash/issues"
+  },
+  "homepage": "https://github.com/chr8993/arp_dash#readme"
+}

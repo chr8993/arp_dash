@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+var userArgs    = process.argv.slice(2);
+var userInput   = userArgs[0];
+var spawn 		= require('child_process').spawn;
+
+if(userInput == 'scan') {
+	var arp = spawn("windump", ['-i4', '-e', 
+			'arp', 'host', '0.0.0.0'], { stdio: 'inherit'});
+}
