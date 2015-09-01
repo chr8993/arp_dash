@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 var userArgs    = process.argv.slice(2);
 var userInput   = userArgs[0];
+var interface 	= userArgs[1];
 var spawn 		= require('child_process').spawn;
-
+var arp;
 if(userInput == 'scan') {
-	var arp = spawn("windump", ['-i4', '-e', 
+	arp = spawn("windump", [('-i' + interface), '-e', 
 			'arp', 'host', '0.0.0.0'], { stdio: 'inherit'});
+}
+else if(userInput == 'listen') {
+	var mac = userArgs[2];
+	arp = spawn("windump", [('-i' + interface), 'ether', 
+		'host', mac], {stdio: 'inherit'});
 }

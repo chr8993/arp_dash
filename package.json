@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "arp_dash": "bin/arp_dash"
+    "arp_dash": "./bin/arp_dash"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/chr8993/arp_dash/issues"
   },
-  "homepage": "https://github.com/chr8993/arp_dash#readme"
+  "homepage": "https://github.com/chr8993/arp_dash#readme",
+  "devDependencies": {
+    "win-spawn": "^2.0.0"
+  }
 }
