@@ -1,6 +1,6 @@
 {
   "name": "arp-dash",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A hack for executing javascript when Amazon dash button is pressed utilizing tcpdump/windump",
   "main": "lib/index.js",
   "scripts": {
