@@ -30,7 +30,7 @@
     "url": "https://github.com/chr8993/arp_dash/issues"
   },
   "homepage": "https://github.com/chr8993/arp_dash#readme",
-  "dependancies": {
+  "dependencies": {
     "win-spawn": "^2.0.0"
   }
 }

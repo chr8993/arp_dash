@@ -4,6 +4,9 @@ A hack for the Amazon dash button to execute JavaScript when pressed.
 Utilizes windump to listen for certain requests made
 by the Amazon dash button. Has only been tested on Windows machines.
 
+## Dependencies
+- WinPcap
+
 ## Installation
 
 ```
