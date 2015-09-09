@@ -5,7 +5,7 @@ Utilizes windump to listen for certain requests made
 by the Amazon dash button. Has only been tested on Windows machines.
 
 ## Dependencies
-- WinPcap
+- [WinPcap](http://www.winpcap.org/install/default.htm)
 
 ## Installation
 
