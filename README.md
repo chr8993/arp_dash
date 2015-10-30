@@ -35,3 +35,20 @@ arpdash.listen(opts, function() {
   console.log("You pressed the button.");
 });
 ```
+
+## CLI
+
+List available interfaces
+```
+arpdash list
+```
+
+Scan for dash button on specific interface
+```
+arpdash scan -i <interface>
+```
+
+Listen for a specific device on interface
+```
+arpdash listen -i <interface> -m <macAddress>
+```
