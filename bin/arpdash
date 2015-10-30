@@ -1,17 +1,58 @@
 #!/usr/bin/env node
-var userArgs    = process.argv.slice(2);
-var userInput   = userArgs[0];
-var interface 	= userArgs[1];
 var spawn 		  = require('child_process').spawn;
 var path 				= require('path');
 var dir 			  = path.resolve(__dirname, '../lib');
+var prgrm 			= require('commander');
+
 var arp;
-if(userInput == 'scan') {
-	arp = spawn(dir + "/windump", [('-i' + interface), '-e',
-			'arp', 'host', '0.0.0.0'], { stdio: 'inherit'});
-}
-else if(userInput == 'listen') {
-	var mac = userArgs[2];
-	arp = spawn(dir + "/windump", [('-i' + interface), 'ether',
-		'host', mac], {stdio: 'inherit'});
+prgrm
+	.version('0.0.3')
+	.usage('[command] <options ...>');
+
+prgrm
+	.command('scan [options]')
+	.description('Scan the network for dash button')
+	.option('-i, --interface <interface>', 'Interface to listen on')
+	.action(function(env, opts) {
+			if(!opts.interface) {
+				console.log("No interface specified");
+				return;
+			}
+			var interface = opts.interface;
+			arp = spawn(dir + '/windump', [('-i' + interface),
+			'-e', 'arp', 'host', '0.0.0.0'], {stdio: 'inherit'});
+	});
+
+prgrm
+	.command('listen [options]')
+	.description('Listen for a specific dash button mac address')
+	.option('-i, --interface <interface>', 'Interface to listen on.')
+	.option('-m, --mac <mac>', 'Mac adddress of button')
+	.action(function(env, opts) {
+		 if(!opts.interface) {
+			 console.log('No interface specified');
+			 return;
+		 }
+		 if(!opts.mac) {
+			 console.log('No mac address specified');
+			 return;
+		 }
+		 var interface = opts.interface;
+		 var mac = opts.mac;
+		 arp = spawn(dir + '/windump', [('-i' + interface), 'ether',
+	 	 'host', mac], {stdio: 'inherit'});
+	});
+
+prgrm
+	.command('list [options]')
+	.description('List all available interfaces')
+	.action(function(env, opts) {
+		arp = spawn(dir + '/windump', ['-D'],
+		{stdio: 'inherit'});
+	});
+
+prgrm.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  prgrm.outputHelp();
 }
